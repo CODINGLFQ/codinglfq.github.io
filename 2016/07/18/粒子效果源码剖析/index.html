@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Frank在 Github 上的个人博客">
+    <meta name="keyword" content="CODINGLFQ,lfq,前端,全栈,hexo,Anisina,blog,github">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="http://icons.iconarchive.com/icons/blackvariant/button-ui-requests-15/256/Amazon-Kindle-icon.png">
+    <link rel="alternate" type="application/atom+xml" title="CODINGLFQ" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        粒子效果源码心得｜大强&#39;s world
+        
+    </title>
+
+    <link rel="canonical" href="https://CODINGLFQ.github.io/2016/07/18/粒子效果源码剖析/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('//oco8bvfr8.qnssl.com/lion-blur-bg.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body oncontextmenu="return false" ondragstart="return false" onselectstart="return false" onselect="document.selection.empty()" oncopy="document.selection.empty()" onbeforecopy="return false" onmouseup="document.selection.empty()" ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    大强
+                </span>
+                's World
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Frank:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+                    
+                        
+							
+                        <li>
+                            <a href="/my-works/">My works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+							
+						
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="//oco8bvfr8.qnssl.com/blog-bg-black-run.jpg?imageView2/1/w/1400/h/400/interlace/1/q/80">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('//oco8bvfr8.qnssl.com/blog-bg-black-run.jpg?imageView2/1/w/1400/h/400/interlace/1/q/80')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>粒子效果源码心得</h1>
+                    
+                    <span class="meta">
+                         作者 Frank.Liu
+                        <span>
+                          日期 2016-07-18
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#心得"
+                           title="心得">心得</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-CODINGLFQ">
+        <span>
+            粒子效果源码心得
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <p>好奇萌小助官网的粒子效果，所以在网上找到了一个类似的例子，尝试理解其实现原理</p>
+<h2>源码实现的大致流程</h2>
+<p>1 初始化粒子容器、设置粒子的样式、步进速度</p>
+<pre><code> var canvasEl = document.getElementById('canvas');
+var ctx = canvasEl.getContext('2d');
+var mousePos = [0, 0];
+
+var easingFactor = 5.0; // 鼠标跟随移动响应速度
+
+var backgroundColor = 'black';
+var nodeColor = '#fff';
+var edgeColor = '#fff';
+
+var nodes = [];
+var edges = [];
+</code></pre>
+<p>2 创建粒子，然后push到数组里</p>
+<pre><code>function constructNodes() {
+
+    var nodeNumber = 60; // 生成指定数量的 node
+
+    for (var i = 0; i &lt;= nodeNumber; i++) {
+
+        var node = {
+            drivenByMouse: i == 0, // 返回一个 boolean
+            x: Math.random() * canvasEl.width, // 随机生成 canvas 的位置, 限定在 canvas 的宽度内
+            y: Math.random() * canvasEl.height,// 随机生成 canvas 的位置, 限定在 canvas 的长度内
+            vx: Math.random()  - .1, // 步进
+            vy: Math.random()  - .1, // 步进
+            radius: Math.random() &gt; 0.9 ? 3 + Math.random() * 3 : 1 + Math.random() * 3 // 节点的尺寸
+        };
+
+        nodes.push(node); // 将生成的每一个结果都添加到节点数组里
+    }
+
+    nodes.forEach(function (e) {
+        nodes.forEach(function (e2) {
+            if (e == e2) {
+                return;
+            }
+
+            // 如果这两个元素不是同一个, 那就链接他们,在一定的距离内
+            var edge = {
+                from: e,
+                to: e2
+            };
+
+            addEdge(edge);
+            edges.push(edge); //将他们的节点关系保存到边缘数组里
+        });
+    });
+}
+</code></pre>
+<p>3 捆绑粒子，将两个不同的粒子相捆绑</p>
+<pre><code>function addEdge(edge) {
+
+    var ignore = false; // 开关
+
+    edges.forEach(function (e) {
+
+        if (e.form == edge.form &amp;&amp; e.to == edge.to ) {
+            ignore = true;
+        }
+
+        if (e.to == edge.from &amp;&amp; e.form == edge.to) {
+            ignore = true;
+        }
+
+    });
+
+    if (!ignore) {
+        edges.push(edge);
+    }
+}
+</code></pre>
+<p>4 生成粒子和将胡同的粒子捆绑之后，开始移动他们的位置</p>
+<pre><code> function step() {
+    nodes.forEach(function (e) {
+        // 不操作第一个节点
+        if (e.drivenByMouse) {
+            return;
+        }
+
+        e.x += e.vx; // 改变位置 x
+        e.y += e.vy; // 改变位置 y
+
+        function clamp(min, max, value) {
+            if (value &gt; max) {
+                return max;
+            }
+            if (value &lt; min) {
+                return min;
+            }
+
+            return value;
+        }
+
+        if (e.x &lt;= 0 || e.x &gt;= canvasEl.width) {
+            e.vx *= -1;
+            e.x = clamp(0, canvasEl.width, e.x)
+        }
+
+        if (e.y &lt;= 0 || e.y &gt;= canvasEl.height) {
+            e.vy *= -1;
+            e.y = clamp(0, canvasEl.height, e.y)
+        }
+    });
+
+    adjustNodeDrivenByMouse();
+    render();
+    window.requestAnimationFrame(step);
+}
+</code></pre>
+<p>5 鼠标移到粒子上的效果</p>
+<pre><code>function adjustNodeDrivenByMouse() {
+    nodes[0].x += (mousePos[0] - nodes[0].x) / easingFactor;
+    nodes[0].y += (mousePos[1] - nodes[0].y) / easingFactor;
+}
+
+  function lengthOfEdge(edge) {
+    return Math.sqrt(Math.pow((edge.from.x - edge.to.x), 2) + Math.pow((edge.from.y - edge.to.y), 2));
+}
+</code></pre>
+<p>6 渲染</p>
+<pre><code> function render() {
+    ctx.fillStyle = backgroundColor;
+    ctx.fillRect(0, 0, canvasEl.width, canvasEl.height);
+
+    edges.forEach(function (e) {
+        var l = lengthOfEdge(e);
+        var threshold = canvasEl.width / 8; // 连线距离
+
+        if (l &gt; threshold) {
+            return;
+        }
+
+        ctx.strokeStyle = edgeColor;
+        ctx.lineWidth = (1.0 - l / threshold) * 2.5;
+        ctx.globalAlpha = 1.0 - l / threshold; // 根据距离渐变线段的清晰度
+        ctx.beginPath();
+        ctx.moveTo(e.from.x, e.from.y);
+        ctx.lineTo(e.to.x, e.to.y);
+        ctx.stroke();
+    });
+    ctx.globalAlpha = 1.0; // 删掉后有出奇不意的好效果
+
+    nodes.forEach(function (e) {
+        if (e.drivenByMouse) {
+            // 过滤掉第一个粒子
+            return;
+        }
+
+        ctx.fillStyle = nodeColor;
+        ctx.beginPath();
+        ctx.arc(e.x, e.y, e.radius, 0, 2 * Math.PI);
+        ctx.fill();
+    });
+}
+</code></pre>
+<p>7 窗口改变的时候调整 canvas 的大小，因为canvas是位图，而非SVG的矢量</p>
+<pre><code> window.onresize = function () {
+
+    //画布的分辨率随着窗口的调整而改变
+    canvasEl.width = canvasEl.clientWidth;
+    canvasEl.height = canvasEl.clientHeight;
+
+    if (nodes.length == 0) {
+        // 如果第一次执行的话, 就创建node
+        constructNodes();
+    }
+
+    render();
+};
+</code></pre>
+<p>8 鼠标的位置偏移</p>
+<pre><code>  window.onmousemove = function (e) {
+    mousePos[0] = e.clientX;
+    mousePos[1] = e.clientY;
+};
+</code></pre>
+<p>10 第一次打开时手动触发一次页面</p>
+<pre><code>window.onresize();
+</code></pre>
+<p>11 动画定时器 ES5	
+window.requestAnimationFrame(step);</p>
+<h2>心得</h2>
+<h3>Canvas 性能问题</h3>
+<p>使用canvas的时候，发现粒子较多的时候CPU占用很高，但可以通过在 css 样式里添加一个 trick，强制启用 GPU 硬件加速，从而降低对 CPU 的运算的依赖提升性能。
+（唐阳）</p>
+<h3>模块化函数</h3>
+<p>在该源码中，每一个函数都是一个简单明了的功能，和有一个语意化的函数名。
+这样做的好处，我意识到有以下几点：</p>
+<ol>
+<li>降低了代码之间的耦合，有助于二次开发和查错。</li>
+<li>每个函数应该只专注一件事；</li>
+<li>语意化的名称有助于理解函数或对象的作用，无形的注释。</li>
+</ol>
+<h3>总结</h3>
+<p>代码是一种工具，亦是思想的体现。越是在写前对代码的 <strong>整体结构</strong> 和 <strong>需求</strong> 越有清晰的认识，写出的代码越就是 可维护性高、更健壮。</p>
+<p>算是第一次写阅读源码心得，与其说在源码中学到了什么，不如说学习如何阅读源代码。</p>
+
+                <hr>
+  
+
+
+
+
+<div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>梦想基金</div>
+  <button id="rewardButton" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}" disable="enable">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+
+        <a class="fancybox fancybox.image" href="/img/wechatpay.png" rel="group">
+          <img id="wechat_qr" alt="微信" src="/img/wechatpay.png">
+        </a>
+
+        <!-- <img id="wechat_qr" src="/img/wechatpay.png" alt="frank 微信支付"/> -->
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/img/alipay.png" alt="支付宝"/>
+        <p>支付宝支付</p>
+      </div>   
+
+     </div>
+    </div>
+</div>
+
+
+
+
+
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2016/07/30/为自由之地/" data-toggle="tooltip" data-placement="top"
+                           title="Break The Wall">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2016/06/29/Chrome-53-性能大幅度提升的背后/" data-toggle="tooltip" data-placement="top"
+                           title="Chrome 53 性能大幅度提升的背后">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+                <!-- 来必力City版安装代码 -->
+                <div id="lv-container" data-id="city" data-uid="MTAyMC8yODU3MC81MTQx">
+                    <script type="text/javascript">
+                        (function(d, s) {
+                            var j, e = d.getElementsByTagName(s)[0];
+
+                            if (typeof LivereTower === 'function') { return; }
+
+                            j = d.createElement(s);
+                            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                            j.async = true;
+
+                            e.parentNode.insertBefore(j, e);
+                        })(document, 'script');
+                    </script>
+                    <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+                </div>
+                <!-- City版安装代码已完成 -->
+                
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">源码实现的大致流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-text">心得</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-text">Canvas 性能问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-text">模块化函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-text">总结</span></a></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#心得"
+                           title="心得">心得</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <div style="margin-top: 20px;">
+                    <h5 class="text-center">FRIENDS</h5>
+                    <ul class="list-inline text-center">
+                        
+                        <li><a href="http://blog.yufeng.info/">余锋&#39;s Blog</a></li>
+                        
+                        <li><a href="https://blog.codingnow.com/">云风&#39;s Blog</a></li>
+                        
+                        <li><a href="http://emqtt.io/">EMQ</a></li>
+                        
+                        <li><a href="#">Bar</a></li>
+                        
+                        <li><a href="#">Example Friends</a></li>
+                        
+                        <li><a href="#">It helps SEO</a></li>
+                        
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/iot_frank">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://codinglfq.github.io/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/CODINGLFQ">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; CODINGLFQ 2017
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://CODINGLFQ.github.io/">Frank.Liu</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://CODINGLFQ.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Frank
+    var _gaId = 'UA-78633618-1';
+    var _gaDomain = 'auto';
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','Wedjzx3dn5qkFKLneXxt','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="http://ww1.sinaimg.cn/mw690/827adee6jw8faaiworm3mj20ku0kuju4.jpg">
+</body>
+
+</html>

@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Frank在 Github 上的个人博客">
+    <meta name="keyword" content="CODINGLFQ,lfq,前端,全栈,hexo,Anisina,blog,github">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="http://icons.iconarchive.com/icons/blackvariant/button-ui-requests-15/256/Amazon-Kindle-icon.png">
+    <link rel="alternate" type="application/atom+xml" title="CODINGLFQ" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        大强&#39;s world
+        
+    </title>
+
+    <link rel="canonical" href="https://CODINGLFQ.github.io/2017/12/一些感悟/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+
+<!-- 可拖动图片弹出层插件layer.js -->
+<script src="layer/jquery-1.8.3.min.js"></script>
+<script src="layer/layer.js"></script>
+
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('//oco8bvfr8.qnssl.com/lion-blur-bg.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body oncontextmenu="return false" ondragstart="return false" onselectstart="return false" onselect="document.selection.empty()" oncopy="document.selection.empty()" onbeforecopy="return false" onmouseup="document.selection.empty()" ontouchstart="" class="animated fadeIn">
+<!-- 添加页面保护，禁止左右键，禁止copy -->
+<!-- oncontextmenu=self.event.returnValue=false onselectstart="return false" -->
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    大强
+                </span>
+                's World
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Frank:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+                    
+                        
+							
+                        <li>
+                            <a href="/my-works/">My works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+							
+						
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="//oco8bvfr8.qnssl.com/http://cdn.sspai.com/attachment/thumbnail/2016/06/11/1f44218064e4e842d197b9525cc2b4c4512c2_mw_800.jpg">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('//oco8bvfr8.qnssl.com/http://cdn.sspai.com/attachment/thumbnail/2016/06/11/1f44218064e4e842d197b9525cc2b4c4512c2_mw_800.jpg?imageView2/1/w/1400/h/400/interlace/1/q/90')
+    }
+
+    
+</style>
+
+<header class="intro-header" style="background-image:url('/img/about-bg-walle.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>Hello World</h1>
+                    <h1>你好，世界</h1>
+                    <!-- <span> 你好，物联网</span> -->
+                    <!-- <h2 class="subheading">about me</h2> -->
+                    
+                    <span class="meta">
+                           <!-- Frank.Liu , 2017-12-03 -->
+<!--                         <span>
+                        ,  2017-12-03
+                         </span> -->
+                    </span>
+                    <div class="tags text-center">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-CODINGLFQ">
+        <span>
+            <!-- about me -->
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <blockquote>
+<p>ABOUT ME</p>
+</blockquote>
+<!-- <p>http://ww1.sinaimg.cn/mw690/827adee6jw8faaiworm3mj20ku0kuju4.jpg</p> -->
+<!-- <div style="position:relative;">
+    <img src="https://foofish.net/images/peitu/karsten-wurth-205496.jpg"> -->
+
+   <div class="content-wrap">
+    
+    <div>
+        <p>
+            <img src="http://ww1.sinaimg.cn/mw690/827adee6jw8faaiworm3mj20ku0kuju4.jpg" width="300" height="200">
+        </p>
+<p>大家好，我是Frank.Liu, 现居住在中国宁波,就职于中国某软件企业任产品研发</p>
+<p>专注于：高性能、容错、分布式服务器的研究和实现, 物联网技术的研究与实现, JavaEE开发</p>
+<p>致力于Java、Python、Erlang、Html5 软件开发</p>
+<p>开发平台：Debian,Ubuntu,Win</p>
+<p>开发工具：Eclipse, IDEA, PyCharm,Sublime Text</p>
+<p>数据库：Mysql,Oracle,NoSql,SQLite</p>
+<p>版本控制：Git, SVN</p>
+<p>信仰: 不忘初心，做好自己</p>
+<p>GitHub: 
+    <a href="https://github.com/codinglfq">https://github.com/codinglfq</a>
+</p>
+<p>Twitter: 
+    <a href="https://twitter.com/dev_frank">@iot_frank</a>
+</p>
+<p>写信给我：liu.fuqiang@aliyun.com</p>
+<p>更多详情请访问: 
+    <a href="/2017/12/second-index/">关于我</a> 
+</p>
+<!-- <p>IP:<a href="/2018/ip_test/">查看你的ip</a> </p> -->
+
+<p>--------------------------------------------------------------------------</p> 
+
+<p>Hi, I'm Frank.Liu. Now i'm living in Ningbo, China.</p>
+<p>Focus on: High performance, research and implementation of distributed server, the Internet of things, the web development.</p>
+<p>Environment: Have been using Linux for more than two years.Familiar with developing environment and server deployment on Linux.
+<p>Language: Familiar with Java, Python,Erlang and can use it to accomplish lots of work.</p>
+<p>Belief:  Follow your heart, don't forget your dream, be yourself.</p>
+<p>Others: I love to work with teams, not work alone.Pretty good at using git and markdown.Familiar with security of Server Application.</p>
+<p>Github:  
+    <a href="https://github.com/codinglfq">https://github.com/codinglfq</a>
+</p>
+<p>Mail:  liu.fuqiang@aliyun.com</p>
+<p>More:
+    <a href="/2017/12/second-index/">Please vist my home page.</a> 
+</p>
+<!-- <p>IP:<a href="/2018/ip_test/">Your ip</a> </p> -->
+<p>IP:<a href="/2018/jsp/index.jsp">Your Ip</a> </p> <!-- github pages是静态站点托管服务，不支持PHP，Ruby或Python等服务器端代码，jsp是java服务器页面，是你动态网页 -->
+   </div> 
+
+
+<!--     </div> -->
+
+
+
+<!-- netease music -->
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=33469292&auto=1&height=66"></iframe>
+
+<!-- <embed src="http://www.xiami.com/widget/0_1772861479/singlePlayer.swf" type="application/x-shockwave-flash" width="257" height="33" wmode="transparent"></embed> -->
+
+<!-- <script type="text/javascript" src="http://www.xiami.com/widget/player-single?uid=0&sid=1772861479&mode=js"></script> -->
+
+</div>
+                <hr>
+
+<div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>梦想基金</div>
+  <button id="rewardButton" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}" disable="enable">
+    <span>领红包</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+<!--       <div id="wechat" style="display: inline-block">
+        <a class="fancybox fancybox.image" href="/img/wechatpay.png" rel="group">
+          <img id="wechat_qr" alt="微信" src="/img/wechatpay.png">
+        </a>
+        <p>微信支付</p>
+      </div>
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/img/alipay.png" alt="支付宝"/>
+        <p>支付宝支付</p>
+      </div>    -->
+
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/img/alipay_lucky_money.png" width="300" height="200" alt="支付宝"/>
+        <p>支付宝扫一扫领红包</p>
+      </div>  
+
+     </div>
+    </div>
+</div>                
+
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2016/06/29/Chrome-53-性能大幅度提升的背后/" data-toggle="tooltip" data-placement="top"
+                           title="Chrome 53 性能大幅度提升的背后">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2017/12/一些感悟" data-toggle="tooltip" data-placement="top"
+                           title="一些感悟">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+                <!-- 来必力City版安装代码 -->
+                <div id="lv-container" data-id="city" data-uid="MTAyMC8yODU3MC81MTQx">
+                    <script type="text/javascript">
+                        (function(d, s) {
+                            var j, e = d.getElementsByTagName(s)[0];
+
+                            if (typeof LivereTower === 'function') { return; }
+
+                            j = d.createElement(s);
+                            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                            j.async = true;
+
+                            e.parentNode.insertBefore(j, e);
+                        })(document, 'script');
+                    </script>
+                    <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+                </div>
+                <!-- City版安装代码已完成 -->
+                
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    
+                </div>
+            </div>
+        </div>
+
+<!-- 加球，1.vist:  https://www.revolvermaps.com ，2.copy the script to html,ok [访客 IP 地点统计, 访客人数统计, 页面停留时间统计,多样式定制,免费、易使用]-->
+<script type="text/javascript" src="//ra.revolvermaps.com/0/0/6.js?i=0af9fovfn2d&amp;m=7&amp;c=e63100&amp;cr1=ffffff&amp;f=arial&amp;l=0&amp;bv=90&amp;lx=-420&amp;ly=420&amp;hi=20&amp;he=7&amp;hc=a8ddff&amp;rs=80" async="async"></script>
+
+
+
+<script type="text/javascript" src="http://counter.sina.com.cn/ip/" charset="gb2312"></script> <!--获取接口数据，注意charset --> 
+<script type="text/javascript"> 
+document.writeln("IP地址："+ILData[0]+"<br />"); //输出接口数据中的IP地址 
+document.writeln("地址类型："+ILData[1]+"<br />"); //输出接口数据中的IP地址的类型 
+document.writeln("地址类型："+ILData[2]+"<br />"); //输出接口数据中的IP地址的省市 
+document.writeln("地址类型："+ILData[3]+"<br />"); //输出接口数据中的IP地址的 
+document.writeln("地址类型："+ILData[4]+"<br />"); //输出接口数据中的IP地址的运营商 
+</script> 
+
+
+<!-- <script src="http://pv.sohu.com/cityjson?ie=utf-8%22%3E%3C/script%3E"> </script> -->
+
+
+<!-- 引用 -->
+<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+<!-- 直接获取IP和城市名： -->
+<!-- alert(returnCitySN['cip'] + returnCitySN['cname']); -->
+
+<script language="javascript" type="text/javascript" src="http://pv.sohu.com/cityjson?ie=utf-8">
+</script>    
+ <script>document.write("你的IP是："+returnCitySN['cip']+"，来自："+returnCitySN['cname']);  
+</script> 
+
+<script language="javascript" type="text/javascript" src="http://fw.qq.com/ipaddress">
+</script>    
+ <script>document.write("你的IP是："+IPData[0]+"，来自："+IPData[2]);  
+</script> 
+
+
+<!-- <script type="text/javascript" src="http://fw.qq.com/ipaddress" charset="gb2312"></script>  
+  
+$(document).ready(function() {  
+  
+    $("#ip").val(IPData[0]);  
+    $("#add").val(IPData[2]);  
+})  --> 
+
+
+
+<!-- <script language="JavaScript"> 
+function GetLocalIPAddr(){ 
+var oSetting = null; 
+var ip = null; 
+try{ 
+oSetting = new ActiveXObject("rcbdyctl.Setting"); 
+ip = oSetting.GetIPAddress; 
+alert(ip); 
+if (ip.length == 0){ 
+return "没有连接到Internet"; 
+} 
+oSetting = null; 
+}catch(e){ 
+return ip; 
+} 
+return ip; 
+} 
+alert(GetLocalIPAddr()) 
+</script> -->
+
+
+<!-- 
+<script type="text/javascript" src="http://www.coding123.net/getip.ashx?js=1"></script>
+<script>
+alert(ip)
+</script> -->
+
+
+<!-- <script type="text/javascript" src="http://ip.itlearner.com/getip.php"></script> -->
+
+<!-- 搜狐IP地址查询接口（默认GBK）：http://pv.sohu.com/cityjson -->
+<!-- <script type="text/javascript" src="http://pv.sohu.com/cityjson"></script> -->
+
+<!-- <script src="ip.js"></script>
+点击提示实例1: IP为 <a href="javascript:alertIp('*.*.*.*');"><script src="ip.js"></script></a>
+点击显示实例1: IP为 <a href="javascript:labelIp('showIpInfo','*.*.*.*');"><script src="ip.js"></script></a> 位置信息:<span id="showIpInfo" style="color:#FF0000"></span> -->
+
+<!-- <script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>  
+<script type="text/javascript">  
+document.write(returnCitySN["cip"]+','+returnCitySN["cname"])  
+</script>
+
+<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script> 
+<script>       document.write(returnCitySN["cip"]+','+returnCitySN["cname"]) 
+</script>
+
+
+<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+<script type="text/<A class="infotextkey" href="http://www.jbxue.com/" target=_blank>javascript</A>">
+document.write(returnCitySN["cip"]+','+returnCitySN["cname"])
+</script>
+
+<script language="javascript" type="text/javascript" src="http://fw.qq.com/ipaddress">
+</script> 
+<script>document.write("你的IP是："+IPData[0]+"，来自："+IPData[2]);
+</script> -->
+
+
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <div style="margin-top: 20px;">
+                    <h5 class="text-center">FRIENDS</h5>
+                    <ul class="list-inline text-center">
+                        
+                        <li><a href="http://blog.yufeng.info/">余锋&#39;s Blog</a></li>
+                        
+                        <li><a href="https://blog.codingnow.com/">吴云洋&#39;s Blog</a></li>
+                        
+                        <li><a href="http://emqtt.com//">EMQ</a></li>
+                        
+                        <li><a href="#">Bar</a></li>
+                        
+                        <li><a href="#">Example Friends</a></li>
+                        
+                        <li><a href="#">It helps SEO</a></li>
+                        
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/iot_frank">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://weibo.com/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/CODINGLFQ">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; CODINGLFQ 2018
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">总访问量: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://CODINGLFQ.github.io/">Frank.Liu</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://CODINGLFQ.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Frank
+    var _gaId = 'UA-78633618-1';
+    var _gaDomain = 'auto';
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','Wedjzx3dn5qkFKLneXxt','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="http://ww1.sinaimg.cn/mw690/827adee6jw8faaiworm3mj20ku0kuju4.jpg">
+
+  <!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/love.js"></script>
+
+<!-- <script type="text/javascript" src="/js/motion.js?v=5.1.3"></script> -->
+<!-- 线条 -->
+<script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+<!-- 纯js直接生成文件并下载文件，ok -->
+<!-- <script type="text/javascript">
+  function download(filename, text) {
+  var element = document.createElement('a');
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+  element.setAttribute('download', filename);
+  element.style.display = 'none';
+  document.body.appendChild(element);
+  element.click();
+  document.body.removeChild(element);
+}
+</script>
+
+<script type="text/javascript">
+    download("d:\\hello.txt","This is the content of my file :)")
+</script> -->
+
+
+
+
+
+<!-- 页面中加一段js，用js执行一些功能（打开这个页面就在后端服务器生成一个txt）,unsuccess -->
+<!-- <script language="JavaScript">
+    var strFile = "d:\\1111111.txt";
+    var objFSO = new ActiveXObject("Scripting.FileSystemObject");
+    // 检查文件是否存在
+    if (!objFSO.FileExists(strFile)){
+    // 创建文本文件
+    var objStream = objFSO.CreateTextFile(strFile, true);
+    document.write("创建文本文件: " + strFile + "<br>");
+    objStream.Close();  // 关闭文件
+    }
+    else
+    document.write("文本文件: " + strFile + "已经存在<br>");
+</script> -->
+
+<!-- <script>
+    var blob = new Blob(["Hello, world!"], {type: "text/plain;charset=utf-8"});
+    saveAs(blob, "d:\\helloworld.txt");
+</script>
+
+<script>
+    var oWordApp = new ActiveXObject("Word.Application");
+    var oDocument = oWordApp.Documents.Open("d:\\word.doc");
+    oDocument.SaveAs("d:\\Word\\word.htm", 8);
+</script> -->
+
+<!-- <script type="text/javascript">
+/* var Base64 = {}; */
+        
+window.onload = function() {
+    var save = document.getElementById("save");
+    // IE
+    if(/msie/i.test(navigator.userAgent)) {
+        save.onclick = function() {
+            var path = prompt("输入保存路径和文件名", "C:\\test.txt");
+            var content = document.getElementById("content").value;
+            content = content.replace(/\n/g, "\r\n");
+            var fso = new ActiveXObject("Scripting.FileSystemObject");
+            var s = fso.CreateTextFile(path, true);
+            s.WriteLine(content);
+            s.Close();
+        };
+    }
+    // Firefox/Chrome/Safari/Opera
+    else {
+        // 鼠标经过 a 的时候就开始 base64 编码
+        save.onmouseover = function() {
+            var content = document.getElementById("content").value;
+            this.setAttribute("href",
+                "data:application/octet-stream;base64,"
+                + Base64.encode(content));
+        };
+    }
+};
+</script> -->
+
+
+<!-- 弹窗 -->
+<!-- 一、使用时，把文件夹layer整个放置在您站点的任何一个目录，只需引入layer.js即可，除jQuery外，其它文件无需再引入。
+二、如果js引入是通过合并处理或者您不想采用layer自动获取的绝对路径，可以通过layer.config()来配置
+三、jquery需1.8+ -->
+<script>
+;!function(){
+
+//页面一打开就执行，放入ready是为了layer所需配件（css、扩展模块）加载完毕
+layer.ready(function(){ 
+    //官网欢迎页
+    layer.open({
+        type: 2,
+        //skin: 'layui-layer-lan',
+        title: '感谢访问，支付宝扫一扫领红包',
+        fix: false,
+        shadeClose: true,
+        maxmin: true,
+        area: ['330px', '537px'], //width,height
+        content: 'img/alipay_luckmoney_2.png',
+        end: function(){
+            layer.tips('试试相册模块？', '#photosDemo', {tips: 1})
+        }
+    });
+    
+    //layer.msg('欢迎使用layer');
+    
+    //使用相册
+    layer.photos({
+        photos: '#photosDemo'
+    });
+});
+
+//关于
+$('#about').on('click', function(){
+    layer.alert(layer.v + ' -  codinglfq出品');
+});
+
+}();
+</script>
+
+
+</body>
+
+</html>

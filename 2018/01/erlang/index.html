@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Frank在 Github 上的个人博客">
+    <meta name="keyword" content="CODINGLFQ,lfq,前端,全栈,hexo,Anisina,blog,github">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="http://icons.iconarchive.com/icons/blackvariant/button-ui-requests-15/256/Amazon-Kindle-icon.png">
+    <link rel="alternate" type="application/atom+xml" title="CODINGLFQ" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        erlang｜CODINGLFQ&#39;s web
+        
+    </title>
+
+    <link rel="canonical" href="https://CODINGLFQ.github.io/2018/01/erlang/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('//oco8bvfr8.qnssl.com/lion-blur-bg.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body oncontextmenu="return false" ondragstart="return false" onselectstart="return false" onselect="document.selection.empty()" oncopy="document.selection.empty()" onbeforecopy="return false" onmouseup="document.selection.empty()" ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    大强
+                </span>
+                's World
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Frank:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                    
+                        
+                    
+                        
+                            
+                        <li>
+                            <a href="/my-works/">My works</a>
+                        </li>
+                            
+                        
+                    
+                        
+                            
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                            
+                        
+                    
+                    
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="//oco8bvfr8.qnssl.com/blog-bg-black-run.jpg?imageView2/1/w/1400/h/400/interlace/1/q/80">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('//oco8bvfr8.qnssl.com/blog-bg-black-run.jpg?imageView2/1/w/1400/h/400/interlace/1/q/80')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>erlang开发笔记</h1>
+                    
+                    <h2 class="subheading">原创</h2>
+                    
+                    <span class="meta">
+                         Frank.Liu
+                        <span>
+                          2018-01-17
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#erlang"
+                           title="erlang">erlang</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-CODINGLFQ">
+        <span>
+            erlang积累分享
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h2>DEVELOP NOTE:</h2>
+<blockquote>
+<h3>二进制型日期转换</h3>
+</blockquote>
+<h3>把<<"2017-12-14 14:06:23">>二进制 转换成 20171214140623</h3>
+<ul>
+<li>binary_to_integer(<<<<LX>> || <<LX>> <= <<"2017-12-14 14:59:23">>, not lists:member(LX,[$-,$ ,$:])>>).</li>
+</ul>
+
+<blockquote>
+<h3>erlang用 | 列表（管道）操作符来分隔头和尾（列表的头部和尾部），表达式: [Head|Tail]。头是一个元素，尾是列表的其余的元素。</h3>
+</blockquote>
+<h3>列表框中加 | ，能够把字符型的转化成ascii码</h3>
+<!-- <p>q:</p> -->
+<ul>
+<li>1>A = "1".</li>
+<li>2>[2|A].</li>
+<li>[2,49]</li>
+</ul>
+
+<blockquote>
+<h3>erlang中的ip地址转化</h3>
+</blockquote>
+<h3>erlang中没有内置的函数、方法，要自己写算法:</h3>
+<ul>
+<img src="/img/ip.png" width="400" height="300">
+</ul>
+
+<blockquote>
+<h3>erlang中的mac地址转化</h3>
+</blockquote>
+<h3>写算法:</h3>
+<ul>
+<img src="/img/mac.png" width="400" height="300">
+<li>注：</li>
+<li>io_lib:format("~.16B~.16B~.16B~.16B~.16B~.16B", L),  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%%是把L中的数据转化成16进制的进行格式化输出</li>
+<li>~.16B &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%%输出16进制的，如0C</li>
+<li>“0”++C  %%转化成16进制的变量C，如果不足两位就前面补0凑够2位</li>
+<li>例如：string:join(["1C","2E","0D"], ":"). 结果就是："1C:2E:0D"</li>
+</ul>
+
+<blockquote>
+<h3>转化成ascii码中对应字符,比如十六进制的字符串“37303032363232303030”转化成字符“7002622000”</h3>
+</blockquote>
+<h3>erlang中把16进制的字符串转化成字符：</h3>
+<ul>
+<li>hex2ints(L) -> hex2ints(L, []).</li>
+<li>hex2ints([], Acc) -></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lists:reverse(Acc);</li>
+<li>hex2ints([A, B|T], Acc) -></li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hex2ints(T, [list_to_integer([A,B], 16) | Acc]).</li>
+<li>测试：</li>
+<li>1> L = "37303032363232303030".</li>
+<li>"37303032363232303030"</li>
+<li>2> myhex:hex2ints(L).</li>
+<li>"7002622000"</li>
+</ul>
+
+
+<!-- <blockquote>
+<p>erlang用 | 列表（管道）操作符来分隔头和尾（列表的头部和尾部），表达式: [Head|Tail]。头是一个元素，尾是列表的其余的元素。</p>
+</blockquote>
+<h3>列表框中加 | ，能够把字符型的转化成ascii码</h3>
+<ul>
+<li>1>A = "1".</li>
+<li>2>[2|A].</li>
+<li>[2,49]</li>
+</ul> -->
+
+
+<hr>
+<!-- <p><a href="https://codinglfq.github.io" target="_blank" rel="external">原创版权所有，如需转载请征得同意~如果对你收获很大，不妨小额赞助我一下：</a></p> -->
+<p><a target="_blank" rel="external">【原创】版权所有，可自由转载、引用，但需署名作者（Frank.Liu）且注明文章出处(https://codinglfq.github.io)。如果对你有用，请随意打赏：</a></p>
+
+
+
+<div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>梦想基金</div>
+  <button id="rewardButton" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}" disable="enable">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+
+        <a class="fancybox fancybox.image" href="/img/wechatpay.png" rel="group">
+          <img id="wechat_qr" alt="微信" src="/img/wechatpay.png">
+        </a>
+
+        <!-- <img id="wechat_qr" src="/img/wechatpay.png" alt="frank 微信支付"/> -->
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/img/alipay.png" alt="支付宝"/>
+        <p>支付宝支付</p>
+      </div>   
+
+     </div>
+    </div>
+</div> 
+
+
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2016/05/15/空谷幽兰/" data-toggle="tooltip" data-placement="top"
+                           title="空谷幽兰">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2017/12/一些感悟/" data-toggle="tooltip" data-placement="top"
+                           title="一些感悟">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+                <!-- 来必力City版安装代码 -->
+                <div id="lv-container" data-id="city" data-uid="MTAyMC8yODU3MC81MTQx">
+                    <script type="text/javascript">
+                        (function(d, s) {
+                            var j, e = d.getElementsByTagName(s)[0];
+
+                            if (typeof LivereTower === 'function') { return; }
+
+                            j = d.createElement(s);
+                            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                            j.async = true;
+
+                            e.parentNode.insertBefore(j, e);
+                        })(document, 'script');
+                    </script>
+                    <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+                </div>
+                <!-- City版安装代码已完成 -->
+                
+            </div>
+
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#erlang"
+                           title="erlang">erlang</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <div style="margin-top: 20px;">
+                    <h5 class="text-center">FRIENDS</h5>
+                    <ul class="list-inline text-center">
+                        
+                        <li><a href="http://blog.yufeng.info/">余锋&#39;s Blog</a></li>
+                        
+                        <li><a href="https://blog.codingnow.com/">云风&#39;s Blog</a></li>
+                        
+                        <li><a href="http://emqtt.io/">EMQ</a></li>
+                        
+                        <li><a href="#">Bar</a></li>
+                        
+                        <li><a href="#">Example Friends</a></li>
+                        
+                        <li><a href="#">It helps SEO</a></li>
+                        
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/iot_frank">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://codinglfq.github.io/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/CODINGLFQ">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; CODINGLFQ 2018
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://CODINGLFQ.github.io/">Frank.Liu</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://CODINGLFQ.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Frank
+    var _gaId = 'UA-78633618-1';
+    var _gaDomain = 'auto';
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','Wedjzx3dn5qkFKLneXxt','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script type="text/javascript" src="/js/love.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="http://ww1.sinaimg.cn/mw690/827adee6jw8faaiworm3mj20ku0kuju4.jpg">
+</body>
+
+</html>
