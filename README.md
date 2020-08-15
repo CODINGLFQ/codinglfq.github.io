@@ -9,7 +9,7 @@ Markdown is a lightweight and easy-to-use syntax for styling your writing. It in
 ```markdown
 Syntax highlighted code block
 
- Hello World! Hello,liufuqiang!You are the Best!
+ Hello World! Hello,codinglfq!You are the Best!
  做好自己！
  不忘初心。
 
@@ -29,4 +29,4 @@ Syntax highlighted code block
 
 Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://cn.bing.com/?FORM=Z9FD1&intlF=). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
 
-                                          All Rights Reserved © 2017 by Frank.Liu
+                                          All Rights Reserved © 2017 by codinglfq
