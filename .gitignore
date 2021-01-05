@@ -1,0 +1,25 @@
+# Idea ignore
+.idea/
+target/
+out/
+*.iml
+*.war
+
+# Eclipse ignore
+.classpath
+.project
+.settings/
+classes/
+*.class
+
+# Node.js
+node_modules/
+dist/
+
+# Temp ignore
+*.log
+*.tmp
+
+# System igonre
+.DS_Store
+Thumbs.db
