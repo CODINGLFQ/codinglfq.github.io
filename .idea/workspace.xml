@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cf5b256a-d89c-4d1a-9dc4-90f9189c0edd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/javatest/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javatest/src/test/java/TestDate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JavaEveryDay/src/main/java/LimitAndSkipTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javatest/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/JavaEveryDay/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javatest/src/test/java/TestDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaEveryDay/src/main/java/TestDate.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +23,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="，" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1juA5x5WhIRbjoGuaQdxwPaQ7kb" />
@@ -42,8 +48,8 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Problems" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.10693877" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -55,8 +61,25 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.LimitAndSkipTest (1)">
+    <configuration name="LimitAndSkipTest (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="LimitAndSkipTest" />
+      <module name="JavaEveryDay" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LimitAndSkipTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="LimitAndSkipTest" />
+      <module name="javatest" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TestDate" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="TestDate" />
       <module name="javatest" />
@@ -64,21 +87,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.LimitAndSkipTest (1)" />
+        <item itemvalue="Application.LimitAndSkipTest" />
         <item itemvalue="Application.TestDate" />
       </list>
     </recent_temporary>
@@ -100,7 +123,10 @@
       <workItem from="1609839982689" duration="2150000" />
       <workItem from="1610421939989" duration="1921000" />
       <workItem from="1610961923017" duration="1835000" />
-      <workItem from="1611019361865" duration="2523000" />
+      <workItem from="1611019361865" duration="3783000" />
+      <workItem from="1611412766068" duration="1361000" />
+      <workItem from="1611537936505" duration="86000" />
+      <workItem from="1616038469341" duration="1956000" />
     </task>
     <task id="LOCAL-00001" summary="add cloud 支付模块">
       <created>1609840104563</created>
@@ -130,7 +156,28 @@
       <option name="project" value="LOCAL" />
       <updated>1610423113123</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add test">
+      <created>1611026418258</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1611026418258</updated>
+    </task>
+    <task id="LOCAL-00006" summary="add test">
+      <created>1611413216116</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1611413216116</updated>
+    </task>
+    <task id="LOCAL-00007" summary="add test">
+      <created>1611413519873</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1611413519873</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -153,6 +200,9 @@
     <MESSAGE value="add ignore" />
     <MESSAGE value="delete 2013" />
     <MESSAGE value="optimize home page" />
-    <option name="LAST_COMMIT_MESSAGE" value="optimize home page" />
+    <MESSAGE value="add javatest" />
+    <MESSAGE value="add test" />
+    <MESSAGE value="add maven moduel, Stream exercise" />
+    <option name="LAST_COMMIT_MESSAGE" value="add maven moduel, Stream exercise" />
   </component>
 </project>
