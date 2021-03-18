@@ -1,3 +1,5 @@
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.ArrayList;
 
 /**
@@ -10,8 +12,10 @@ import java.util.ArrayList;
  * 1、取出前2个元素并在控制台打印输出。
  * 2、取出后2个元素并在控制台打印输出。
  */
+@Slf4j
 public class LimitAndSkipTest {
     public static void main(String[] args) {
+
         ArrayList<String> list = new ArrayList<>();
         list.add("陈玄风");
         list.add("梅超风");
@@ -23,7 +27,9 @@ public class LimitAndSkipTest {
         list.add("罗玉风");
 
         list.stream().limit(2).forEach(System.out::println);
-
+        log.info("------");
+        log.info("list:" + list);
+        list.stream().skip(list.size() - 2).forEach(System.out::println);
 
     }
 }
