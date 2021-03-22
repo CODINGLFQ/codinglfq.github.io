@@ -1,6 +1,7 @@
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * @program: codinglfq.github.io
@@ -30,6 +31,13 @@ public class LimitAndSkipTest {
         log.info("------");
         log.info("list:" + list);
         list.stream().skip(list.size() - 2).forEach(System.out::println);
+
+        HashMap<String, String> map = new HashMap<>();
+        map.put("name1", list.get(0));
+        map.put("name2", list.get(1));
+        map.put("name3", list.get(2));
+        log.info("map:" + map);  //map:{name3=陆乘风, name2=梅超风, name1=陈玄风}
+
 
     }
 }
