@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf5b256a-d89c-4d1a-9dc4-90f9189c0edd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/JavaEveryDay/src/main/java/LimitAndSkipTest.java" afterDir="false" />
+    <list default="true" id="cf5b256a-d89c-4d1a-9dc4-90f9189c0edd" name="Default Changelist" comment="日志输出">
+      <change afterPath="$PROJECT_DIR$/JavaEveryDay/src/main/java/base/DemoConst.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javatest/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/JavaEveryDay/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javatest/src/test/java/TestDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaEveryDay/src/main/java/TestDate.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +29,22 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="$USER_HOME$/dev/apache-maven-repository" />
+        <option name="mavenHome" value="$USER_HOME$/dev/apache-maven-3.5.3" />
+        <option name="userSettingsFile" value="$USER_HOME$/dev/apache-maven-3.5.3/conf/settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="downloadAnnotationsAutomatically" value="true" />
+        <option name="downloadDocsAutomatically" value="true" />
+        <option name="downloadSourcesAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="1juA5x5WhIRbjoGuaQdxwPaQ7kb" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -48,10 +63,11 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.10693877" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RebelAgentSelection">
@@ -65,7 +81,20 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.LimitAndSkipTest (1)">
+  <component name="RunManager" selected="Application.DemoConst">
+    <configuration name="DemoConst" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="base.DemoConst" />
+      <module name="JavaEveryDay" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="base.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="LimitAndSkipTest (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="LimitAndSkipTest" />
       <module name="JavaEveryDay" />
@@ -74,8 +103,10 @@
       </method>
     </configuration>
     <configuration name="LimitAndSkipTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="LimitAndSkipTest" />
-      <module name="javatest" />
+      <module name="JavaEveryDay" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -87,21 +118,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.LimitAndSkipTest (1)" />
+        <item itemvalue="Application.DemoConst" />
         <item itemvalue="Application.LimitAndSkipTest" />
+        <item itemvalue="Application.LimitAndSkipTest (1)" />
         <item itemvalue="Application.TestDate" />
       </list>
     </recent_temporary>
@@ -126,7 +147,34 @@
       <workItem from="1611019361865" duration="3783000" />
       <workItem from="1611412766068" duration="1361000" />
       <workItem from="1611537936505" duration="86000" />
-      <workItem from="1616038469341" duration="1956000" />
+      <workItem from="1616038469341" duration="4026000" />
+      <workItem from="1616046567410" duration="1551000" />
+      <workItem from="1616048145965" duration="120000" />
+      <workItem from="1616048286898" duration="6838000" />
+      <workItem from="1616117898215" duration="2515000" />
+      <workItem from="1616376316497" duration="7446000" />
+      <workItem from="1616405434150" duration="594000" />
+      <workItem from="1616406827992" duration="598000" />
+      <workItem from="1616465282116" duration="543000" />
+      <workItem from="1616466402185" duration="599000" />
+      <workItem from="1616483607369" duration="577000" />
+      <workItem from="1616484471892" duration="551000" />
+      <workItem from="1616549395126" duration="599000" />
+      <workItem from="1616553084380" duration="599000" />
+      <workItem from="1616635645420" duration="436000" />
+      <workItem from="1616721995540" duration="596000" />
+      <workItem from="1616724107524" duration="2758000" />
+      <workItem from="1616736458379" duration="594000" />
+      <workItem from="1616738628991" duration="599000" />
+      <workItem from="1616739693649" duration="594000" />
+      <workItem from="1616749567505" duration="3146000" />
+      <workItem from="1616980901738" duration="1641000" />
+      <workItem from="1617067996587" duration="599000" />
+      <workItem from="1617069559397" duration="599000" />
+      <workItem from="1617154439297" duration="599000" />
+      <workItem from="1617252562513" duration="598000" />
+      <workItem from="1618044506094" duration="720000" />
+      <workItem from="1618195110154" duration="50000" />
     </task>
     <task id="LOCAL-00001" summary="add cloud 支付模块">
       <created>1609840104563</created>
@@ -177,7 +225,35 @@
       <option name="project" value="LOCAL" />
       <updated>1611413519873</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="add maven moduel, Stream exercise">
+      <created>1616044487662</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1616044487662</updated>
+    </task>
+    <task id="LOCAL-00009" summary="日志输出">
+      <created>1616049766340</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1616049766340</updated>
+    </task>
+    <task id="LOCAL-00010" summary="HashMap">
+      <created>1616390328622</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1616390328622</updated>
+    </task>
+    <task id="LOCAL-00011" summary="add base.md">
+      <created>1616753239543</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1616753239544</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -186,6 +262,31 @@
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="structure">
+                    <value>
+                      <list>
+                        <option value="dir:/Users/fuqiangliu/DevProjects/codinglfq.github.io/JavaEveryDay" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State />
@@ -193,9 +294,17 @@
         </entry>
       </map>
     </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="1" value="TOOL_WINDOW" />
+      </map>
+    </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/cloud2020" />
+    </ignored-roots>
     <MESSAGE value="add cloud 支付模块" />
     <MESSAGE value="add ignore" />
     <MESSAGE value="delete 2013" />
@@ -203,6 +312,13 @@
     <MESSAGE value="add javatest" />
     <MESSAGE value="add test" />
     <MESSAGE value="add maven moduel, Stream exercise" />
-    <option name="LAST_COMMIT_MESSAGE" value="add maven moduel, Stream exercise" />
+    <MESSAGE value="日志输出" />
+    <MESSAGE value="HashMap" />
+    <MESSAGE value="add base.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="add base.md" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
